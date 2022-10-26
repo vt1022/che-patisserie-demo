@@ -1,0 +1,36 @@
+.cart-input {
+    align-self: center;
+    display: flex;
+    width: min-content;
+    height: min-content;
+    border-radius: 0.3em;
+    border: 1px solid $light-brown;
+
+    &__amount {
+        border-radius: 0;
+        border: 0;
+        border-left: 1px solid $light-brown;
+        border-right: 1px solid $light-brown;
+        width: 2em;
+        padding-top: 2px;
+        box-shadow: none;
+        @include fontSize(15);
+        text-align: center;
+
+        // remove default arrows-------------
+        -moz-appearance: textfield;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        } // ---------------------------------
+    }
+    &__btn {
+        background: none;
+        border: 0;
+        width: 1.6em;
+        padding: 0;
+        @include fontSize(16);
+        text-align: center;
+    }
+}

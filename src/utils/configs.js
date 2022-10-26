@@ -1,0 +1,31 @@
+export const CLIENT_EMAIL = process.env.REACT_APP_GOOGLE_CLIENT_EMAIL
+
+export const PRIVATE_KEY =
+    process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n")
+
+export const SPREADSHEET_ID =
+    process.env.REACT_APP_GOOGLE_WEBSITE_CONTENT_SPREADSHEET_ID
+
+export const MAC_FLAVOURS_SHEET_ID =
+    process.env.REACT_APP_GOOGLE_MAC_FLAVOURS_SHEET_ID
+
+export const WEEKLY_FLAVOURS_SHEET_ID =
+    process.env.REACT_APP_GOOGLE_WEEKLY_FLAVOURS_SHEET_ID
+
+export const GOOGLE_PRICES_SHEET_ID =
+    process.env.REACT_APP_GOOGLE_PRICES_SHEET_ID
+
+export const GOOGLE_DELIVERY_ID = process.env.REACT_APP_GOOGLE_DELIVERY_ID
+
+export const GOOGLE_BULK_CALENDAR_ID = process.env.REACT_APP_GOOGLE_BULK_CALENDAR_ID
+
+export const GOOGLE_COUPONS_ID = process.env.REACT_APP_GOOGLE_COUPONS_ID
+
+export const GOOGLE_ORDERS_ID = process.env.REACT_APP_GOOGLE_ORDERS_ID
+
+export const DISCORD_HOOK = process.env.REACT_APP_DISCORD_HOOK
+export const DISCORD_HOOK_BULK = process.env.REACT_APP_DISCORD_HOOK_BULK
+
+export const EMAILJS_USER_ID = process.env.REACT_APP_EMAILJS_USER_ID
+
+export const SPECIAL_COUPON = process.env.REACT_APP_SPECIAL_COUPON

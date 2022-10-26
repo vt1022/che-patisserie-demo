@@ -1,0 +1,29 @@
+.add-to-cart {
+    margin-top: 1em;
+    // position: sticky;
+    // bottom: 0;
+    background-color: $light-pink;
+    @include fontSize(12);
+    color: $black;
+    
+    &__container {
+        padding: 0.8em 0;
+
+        &:nth-child(odd) {
+            background-color: $pink;
+        }
+    }
+    &__info-container {
+        margin-left: .6em;
+    }
+    &__wrapper {
+        display: flex;
+
+        > * {
+            margin-right: 0.4em;
+        }
+        :last-child {
+            margin-right: 0;
+        }
+    }
+}

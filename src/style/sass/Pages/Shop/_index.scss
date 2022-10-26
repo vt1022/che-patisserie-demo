@@ -1,0 +1,61 @@
+.shop {
+    min-height: calc(100vh - #{$header-height} - #{$footer-height});
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+    }
+    &__grid-item {
+        &__info {
+            text-align: center;
+        }
+        &__oos {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: rgba($grey, 0.5);
+
+            &__text {
+                width: 100%;
+                text-align: center;
+                background: $light-grey;
+            }
+        }
+        &__image {
+            transition: all .3s ease-in;
+        }
+        &__name {
+            border-bottom: 1px solid transparent;
+            margin-top: 5px;
+            margin-bottom: 0;
+            transition: all 0.3s ease-in;
+        }
+        &__price {
+            margin: 0;
+        }
+        &:hover {
+            .shop__grid-item__name {
+                border-bottom: 1px solid $light-brown;
+            }
+            .shop__grid-item__image {
+                transform: scale(1.5);
+            }
+        }
+    }
+    &-item__image-container {
+        position: relative;
+    }
+}
+
+@import "orderForm";
+@import "flavourPicker";
+
+@media (min-width: 900px) {
+    .shop {
+        margin-bottom: 30px;
+    }
+}

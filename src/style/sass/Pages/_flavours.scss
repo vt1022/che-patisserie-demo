@@ -1,0 +1,74 @@
+.flavours {
+    &__h2 {
+        margin-bottom: 0px;
+    }
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 10px;
+        margin-top: 8px;
+        margin-bottom: 30px;
+    }
+    &__grid-item {
+        position: relative;
+        display: block;
+        align-self: start;
+        overflow: hidden;
+
+        &__name {
+            margin: 0;
+            width: 100%;
+            padding: 0.3em 0.5em;
+
+            position: absolute;
+            bottom: 0;
+            background-color: lighten($light-brown, 45%);
+            transition: all 0.3s ease-in;
+
+            @include fontSize(12);
+            font-weight: 500;
+            color: $black;
+            text-align: center;
+        }
+        &__image {
+            transition: all 0.3s ease-in;
+        }
+        &:hover {
+            .flavours__grid-item {
+                &__image {
+                    transform: scale(1.5);
+                }
+                &__name {
+                    background-color: $pale-gold;
+                }
+            }
+        }
+    }
+    // the flavours grid in flavour page
+    .flavour-info & {
+        &.flavours--all {
+            .flavours__grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            }
+        }
+        &--flavour-info {
+            margin-top: 30px;
+        }
+        &__grid {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+        &__grid-item {
+            line-height: 1.2em;
+        }
+    }
+}
+@media (min-width: 900px) {
+    .flavours {
+        &__grid-item {
+            &__name {
+                @include fontSize(13);
+                line-height: 20px;
+            }
+        }
+    }
+}

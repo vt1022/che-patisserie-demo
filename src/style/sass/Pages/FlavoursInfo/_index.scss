@@ -1,0 +1,82 @@
+.flavour-info {
+    &__image-container {
+        margin: 0 auto;
+        position: relative;
+        clip-path: inset(0);
+        z-index: -1;
+        height: 400px;
+        width: 100%;
+        max-height: 100vw;
+
+        img {
+            width: 100%;
+            max-width: 400px;
+            position: fixed;
+            top: 50px;
+            left: 50%;
+            object-fit: cover;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+    }
+    &__p {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        &--bold {
+            font-weight: 700;
+        }
+    }
+    &__btn {
+        display: inline-block;
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 900px) {
+    .flavour-info {
+        .wrapper {
+            display: flex;
+            align-items: center;
+            margin: auto auto;
+            min-height: calc(100vh - #{$header-height} - #{$footer-height});
+            padding: 2em 0;
+        }
+        &__p {
+            @include fontSize(13);
+            line-height: 24px;
+        }
+        &__image-container {
+            width: 400px;
+
+            img {
+                position: static;
+                transform: translateX(0);
+            }
+        }
+        &__grid {
+            display: grid;
+            grid-template-columns: fit-content 1fr 1fr;
+            grid-gap: 1.6em;
+        }
+        &__description {
+            grid-column: 2 / span 2;
+        }
+        .flavours--flavour-info.flavours {
+            margin-top: 0;
+            grid-column: 1 / span 3;
+
+            &:nth-of-type(2) {
+                grid-column: 1 / span 3;
+            }
+            .flavours__grid {
+                margin-bottom: 0;
+            }
+        }
+        .flavours--flavour-info.flavours.flavours--all {
+            .flavours__grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+        }
+    }
+}

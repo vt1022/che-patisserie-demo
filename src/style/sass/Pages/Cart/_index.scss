@@ -1,0 +1,143 @@
+.cart {
+    min-height: calc(100vh - #{$header-height} - #{$footer-height});
+    
+    &__p {
+        &--coupon-msg {
+            margin-top: 0;
+        }
+    }
+    &__h2 {
+        margin-bottom: 5px;
+    }
+    &__h3 {
+        &--date,
+        &--total {
+            position: relative;
+            z-index: 1;
+
+            &::after {
+                content: "";
+                width: calc(100% + 10px);
+                height: calc(100% + 4px);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: -1;
+                transform: translateX(-50%) translateY(-50%);
+                background: #c59579;
+            }
+        }
+
+        &--total {
+            margin-top: 40px;
+        }
+
+        &--date {
+            margin-bottom: 0;
+        }
+
+        &--product {
+            display: inline-block;
+        }
+    }
+
+    &__h4 {
+        margin: 0;
+    }
+
+    &__btn {
+        &--edit {
+            display: inline-block;
+            border-color: $pink;
+            margin-left: 1em;
+            padding: 0 0.5em;
+            background: transparent;
+        }
+        &--confirm {
+            margin-right: 0.6em;
+        }
+    }
+
+    &__free {
+        position: sticky;
+        top: 45px;
+        z-index: 2;
+        padding-top: 5px;
+        background: $pale-gold;
+
+        &__p {
+            text-align: center;
+        }
+    }
+
+    &__date {
+        margin-bottom: 30px;
+    }
+
+    &__product {
+        display: grid;
+        // grid-template-columns: minmax(0, 220px) minmax(0, 220px);
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        grid-gap: 0.6em;
+        margin-bottom: 10px;
+
+        &__box {
+            border-radius: 0.2em;
+            border: 1px solid lighten($brown, 60%);
+            padding: 0.6em;
+        }
+
+        &__flavour {
+            display: grid;
+            grid-template-columns: minmax(0, 200px) min-content;
+            border-bottom: 1px solid $brown;
+
+            &:last-child:not(:first-of-type) {
+                border: transparent;
+            }
+
+            &__name,
+            &__amount {
+                align-self: flex-end;
+            }
+        }
+    }
+    &__grid {
+        &--info-options {
+            display: grid;
+            grid-gap: 3.6em;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        }
+    }
+    &__exit {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        padding: 18px 0;
+
+        background: rgba(251, 212, 218, 0.9);
+    }
+}
+
+@import "deliveryOptions";
+@import "contactInfo";
+
+@media (min-width: 900px) {
+    .cart {
+        // @include fontSize(16);
+
+        &__h3 {
+            &--date,
+            &--total {
+                &::after {
+                    content: "";
+                    width: calc(100% + 12px);
+                    height: calc(100% + 8px);
+                }
+            }
+        }
+        &__free {
+            padding-bottom: 5px;
+        }
+    }
+}

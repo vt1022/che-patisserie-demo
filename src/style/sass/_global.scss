@@ -1,0 +1,249 @@
+::selection {
+    background-color: turquoise;
+}
+:focus {
+    @include focusState();
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background: #fff;
+    @include fontBody(12);
+    line-height: 22px;
+}
+.page {
+    min-height: calc(100vh - #{$header-height} - #{$footer-height});
+}
+img {
+    display: block;
+    width: 100%;
+}
+h2,
+p {
+    margin: 0.6em 0;
+}
+h2 {
+    color: $black;
+}
+p {
+    color: $brown;
+}
+.p {
+    &--bold {
+        font-weight: 700;
+    }
+}
+a {
+    text-decoration: none;
+    color: $black;
+}
+.link {
+    border-bottom: 1px solid $pink;
+    width: fit-content;
+    transition: all 0.3s ease-in;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-bottom: 1px solid $brown;
+    }
+}
+
+ul,
+ol,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+button {
+    font-family: "Montserrat";
+    color: $black;
+    border: none;
+    margin: 0;
+    background: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background: $pale-gold;
+    }
+    &.active {
+        background-color: $pale-gold;
+    }
+}
+.btn {
+    font-weight: 500;
+    border-radius: 3px;
+    border: 1px solid $light-brown;
+    padding: 0.3em 0.5em;
+    background: $light-pink;
+    @include fontSize(14);
+
+    &:hover,
+    &:focus {
+        background: $pale-gold;
+    }
+    &.active {
+        background-color: $pale-gold;
+    }
+}
+input,
+label {
+    @include fontSize(30);
+}
+select,
+input,
+textarea {
+    border: 1px solid $light-brown;
+    border-radius: 3px;
+
+    &:focus {
+        background: $pale-gold;
+    }
+}
+// hide arrows
+// input[type='number'] {
+//     -webkit-appearance: textfield;
+//     -moz-appearance: textfield;
+//     appearance: textfield;
+// }
+// input[type='number']::-webkit-inner-spin-button,
+// input[type='number']::-webkit-outer-spin-button {
+//     -webkit-appearance: none;
+// }
+.header,
+.home,
+.footer {
+    transition: all 0.3s ease-in;
+}
+.hide {
+    display: none;
+}
+.flying-label-item {
+    position: relative;
+
+    &__input,
+    &__label {
+        border-radius: 3px;
+        @include fontSize(12);
+        transition: all 0.3s ease-in;
+
+        &.disable {
+            background: $light-grey;
+            text-decoration: line-through;
+        }
+    }
+    &__label {
+        display: flex;
+        border-left: 1px solid $light-brown;
+        border-right: 1px solid $light-brown;
+        border-radius: 3px 0 0 3px;
+        width: auto;
+        height: 23px;
+        padding: 0 5px;
+        align-items: center;
+
+        position: absolute;
+        top: 6px;
+        right: calc(100%);
+        transform: translateX(calc(100%));
+        background: $white;
+        white-space: nowrap;
+    }
+    &__input {
+        position: relative;
+        margin: 5px 0;
+        width: 100%;
+        padding: 4px 6px;
+        background: $white;
+
+        &:focus,
+        &:valid {
+            outline: none;
+
+            + label {
+                @include fontSize(12);
+                border-radius: 0 3px 3px 0;
+                border-right: 1px solid transparent;
+                right: 1px;
+                background: $brown;
+                color: $light-pink;
+                transform: translateX(0);
+            }
+        }
+        &:valid + label {
+            background: #c2ff67;
+            color: $black;
+        }
+        &:invalid + label {
+            background: $pink;
+            color: $black;
+        }
+        &--coupon {
+            &:valid + label {
+                right: calc(100%);
+                transform: translateX(calc(100%));
+                background: $white;
+                border-right: 1px solid $light-brown;
+                border-radius: 0;
+            }
+            &:focus + label {
+                right: 1px;
+                border-right: 1px solid transparent;
+                transform: translateX(0);
+            }
+            &.valid + label {
+                right: 1px;
+                border-right: 1px solid transparent;
+                transform: translateX(0);
+                background: #c2ff67;
+                color: $black;
+            }
+        }
+    }
+}
+fieldset {
+    border: none;
+}
+.hidden {
+    display: none;
+}
+.wrapper {
+    width: 92%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.pickup__location {
+    display: block;
+}
+.nowrap {
+    white-space: nowrap;
+}
+
+@media (min-width: 900px) {
+    body {
+        @include fontSize(13);
+        line-height: 24px;
+    }
+    // .flying-label-item {
+    //     &__input,
+    //     &__label {
+    //         @include fontSize(16);
+    //     }
+    //     &__label {
+    //         width: auto;
+    //         height: 26px;
+    //         padding: 0 5px;
+    //     }
+    //     &__input {
+    //         &:focus,
+    //         &:valid {
+    //             + label {
+    //                 @include fontSize(16);
+    //             }
+    //         }
+    //     }
+    // }
+}

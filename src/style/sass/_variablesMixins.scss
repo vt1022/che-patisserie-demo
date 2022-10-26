@@ -1,0 +1,95 @@
+// variables
+// golden ratio phi:
+$phi: 1.6180339887498948482;
+$small-angle: 360 / ($phi + 1); // 137.5
+$large-angle: 360 - $small-angle; // 222.5
+// font colours + pseudo states
+$white: #ffffff;
+$light-grey: #c8c8c8;
+$grey: #665e63;
+$black: #3c3438;
+$light-brown: #9e5135;
+$brown: #66371b;
+$light-pink: #ffecef;
+$pink: #fbd4da;
+$pale-gold: #fff1a1;
+
+$color1: #66371b;
+$color2: #fbd4da;
+
+$christmas-red: #D11E00;
+$christmas-green: #86BB00;
+
+// background colours
+$primaryBg: #f6f6f6;
+
+$header-height: 50px;
+$footer-height: 255px;
+
+// mixins
+
+// vertical + horizontal centering w/ flexbox
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// fonts
+@mixin fontSize($sizeValue) {
+    // font sizes turn into rem values
+    font-size: $sizeValue * 1px;
+    font-size: ($sizeValue/10) * 1rem;
+}
+
+@mixin fontBody($size, $weight: 400, $color: $black) {
+    @include fontSize($size);
+    font-family: "Montserrat", sans-serif;
+    font-weight: $weight;
+    color: $color;
+}
+
+@mixin fontDisplay($size, $weight: 400, $color: $black) {
+    @include fontSize($size);
+    font-family: "Slim Joe", cursive;
+    font-weight: $weight;
+    color: $color;
+}
+
+@mixin focusState() {
+    outline: none;
+}
+
+// might be useful
+@mixin position($type, $top: auto, $bottom: auto, $left: auto, $right: auto) {
+    position: $type;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+}
+
+@mixin overlay($color: #000000, $alpha: 0.7) {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba($color, $alpha);
+}
+
+@mixin pseudo() {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+@mixin centerXY() {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
