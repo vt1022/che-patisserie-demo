@@ -35,7 +35,8 @@ const OrderForm = ({ match, setCheckout, checkout }) => {
 
             dispatch({ type: 'setCart', data: initialCart() })
         }
-    }, [cart, dispatch, flavours.weekly])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const getNames = (acc, curr) => {
         acc.push(curr['Flavour'])

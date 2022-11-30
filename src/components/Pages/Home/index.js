@@ -15,10 +15,13 @@ const slides = Array.from(Array(SLIDE_COUNT).keys())
 const Home = () => {
     const [{ flavours, prices }] = useContext(Context)
 
+    console.log('flavours', flavours)
+
     const upcomingFlavours = () => {
         const result = []
         // console.log('nextOrderDates(flavours.weekly)', nextOrderDates(flavours.weekly));
         nextOrderDates(flavours.weekly).forEach(week => {
+            console.log('week', week)
             result.push(flavours.weekly.filter(entry => entry['Date'] === week))
         })
 

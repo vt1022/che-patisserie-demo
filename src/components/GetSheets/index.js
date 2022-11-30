@@ -49,7 +49,8 @@ function GetSheets({ setCheckout }) {
             dispatch({ type: 'setCart', data: initialCart() })
             setCheckout(initialCart())
         }
-    }, [cart, dispatch, flavours, setCheckout])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [flavours])
 
     useEffect(() => {
         const doc = new GoogleSpreadsheet(SPREADSHEET_ID)
@@ -66,7 +67,6 @@ function GetSheets({ setCheckout }) {
                 await doc.loadInfo()
                 // get data in each row as objects in an array
                 const weekly = await doc.sheetsById[WEEKLY_FLAVOURS_SHEET_ID].getRows()
-
                 if (!isCancel) {
                     dispatch({
                         type: 'setFlavours',
