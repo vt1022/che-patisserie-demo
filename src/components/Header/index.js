@@ -5,7 +5,7 @@ import che from '../../assets/che.svg'
 import cart from '../../assets/cart.svg'
 
 const Header = ({ cartCount }) => {
-    const [msgActive, setMsgActive] = useState(true)
+    const [msgActive, setMsgActive] = useState(false)
     const classes = cartCount > 0 ? `active` : ''
 
     return (
